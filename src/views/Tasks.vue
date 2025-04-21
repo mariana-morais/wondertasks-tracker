@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HeaderTwo from "../components/HeaderTwo.vue";
-import NewTask from "../components/NewTask.vue";
+import HeaderTwo from "@/components/HeaderTwo.vue";
+import NewTask from "@/components/NewTask.vue";
 </script>
 
 <template>

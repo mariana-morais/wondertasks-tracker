@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import HeaderOne from '../components/HeaderOne.vue'
+  import HeaderOne from '@/components/HeaderOne.vue'
 </script>
 <template>
     <section class="flex flex-col justify-center h-screen">
