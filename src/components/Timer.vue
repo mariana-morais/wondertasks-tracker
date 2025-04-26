@@ -29,20 +29,20 @@ const stopTask = () => {
 </script>
 
 <template>
-  <div class="flex flex-row items-center gap-2">
+  <div class="flex flex-row items-center gap-2 text-[#fdf2d5]">
     <Stopwatch :time-in-seconds="timeInSeconds" />
     <div class="flex flex-row gap-4">
       <ControlButton
         @handle-click="startTask"
         :disabled="stopwatchRunning"
-        text="Play"
+        text="Começar?"
         icon="fa fa-play"
       />
 
       <ControlButton
         @handle-click="stopTask"
         :disabled="!stopwatchRunning"
-        text="Parar"
+        text="Parar?"
         icon="fa fa-stop"
       />
     </div>

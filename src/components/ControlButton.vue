@@ -18,7 +18,7 @@ const handleClick = () => {
 
 <template>
   <button
-    class="flex flex-row items-center gap-2 border-2 border-[#cbb994] rounded-lg shadow-md p-2 bg-[#fdf6e3]"
+    class="flex flex-row items-center gap-2 border-2 border-[#cbb994] rounded-lg shadow-md p-2 bg-[#cbb994]"
     :class="{ 'opacity-50 cursor-not-allowed': props.disabled }"
     @click="handleClick"
     :disabled="props.disabled"
