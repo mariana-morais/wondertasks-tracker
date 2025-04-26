@@ -25,6 +25,7 @@ const stopTask = () => {
   clearInterval(stopwatch.value);
   emit("stopwatchStopped", timeInSeconds.value);
   timeInSeconds.value = 0;
+  console.log("stop task???", timeInSeconds.value);
 };
 </script>
 

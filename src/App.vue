@@ -5,9 +5,9 @@
 </template>
 
 <style lang="css">
- html {
-   background-color: #f5f5f5;
-   background-image: url("./assets/images/background.png");
-    background-repeat: repeat;
- }
+html {
+  background-color: #f5f5f5;
+  background-image: url("./assets/images/background.png");
+  background-repeat: repeat;
+}
 </style>
