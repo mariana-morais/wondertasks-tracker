@@ -11,14 +11,11 @@ function handleSubmit(e: Event) {
 const emit = defineEmits(["endTask"]);
 
 const endTask = (timeInSeconds: number): void => {
-  console.log('clicou aqui', timeInSeconds);
   emit("endTask", {
     description: taskDescription.value,
     timeInSeconds: timeInSeconds,
   });
   taskDescription.value = "";
-  console.log(taskDescription.value);
-  console.log(timeInSeconds, "parou???");
 };
 
 
@@ -45,7 +42,7 @@ const endTask = (timeInSeconds: number): void => {
           id="nome"
           type="text"
           placeholder="Ex: Encontrar relógio de bolso perdido"
-          class="w-full rounded-lg border-2 border-[#cbb994] bg-[#fffaf0] p-3 text-base font-alice text-[#fdf2d5] placeholder-[#b5a788] focus:outline-none focus:ring-2 focus:ring-[#cbb994]"
+          class="w-full rounded-lg border-2 border-[#cbb994] bg-[#fffaf0] p-3 text-base font-alice text-[#322D26] placeholder-[#b5a788] focus:outline-none focus:ring-2 focus:ring-[#cbb994]"
           required
           v-model="taskDescription"
         />

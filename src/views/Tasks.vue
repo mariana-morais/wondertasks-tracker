@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import HeaderTwo from "@/components/HeaderTwo.vue";
 import NewTask from "@/components/NewTask.vue";
 import Task from "@/components/Task.vue";
@@ -7,19 +7,42 @@ import type ITask from "../interfaces/ITask";
 
 const tasks = ref<ITask[]>([]);
 
-const endTask = (task: ITask) => {
-  tasks.value.push(task);
-  console.log(tasks, "puxou??");
+const emptyList = computed(() => {
+  return tasks.value.length === 0;
+});
+
+const saveTasks = () => {
+  localStorage.setItem("tasks", JSON.stringify(tasks.value));
 }
+
+const endTask = (task: ITask) => {
+  tasks.value.unshift(task);
+  saveTasks();
+}
+
+const deleteTask = (id: string) => {
+  tasks.value = tasks.value.filter((task) => task.id !== id);
+  saveTasks();
+}
+
+onMounted(() => {
+  const savedTasks = localStorage.getItem("tasks");
+  if (savedTasks) {
+    tasks.value = JSON.parse(savedTasks);
+  }
+});
 </script>
 
 <template>
   <section class="relative">
     <HeaderTwo />
-    <section class="flex flex-col justify-start gap-8 px-8 z-20 relative">
+    <section class="flex flex-col justify-start gap-8 px-8 z-20 relative mb-8">
         <NewTask @endTask="endTask" />
         <h1 class="font-aliceWonderland text-3xl text-[#322D26] text-left">A lista, tudo feito?</h1>
-        <Task v-for="(task, index) in tasks" :key="index" :task="task" />
+        <small v-if="emptyList">
+            Não tem nada para fazer ainda?
+        </small>
+        <Task v-else v-for="(task, index) in tasks" :key="index" :task="task" @deleteTask="deleteTask(task.id)" />
     </section>
     <div class="absolute background h-[50rem] w-full top-32 z-0"></div>
   </section>
