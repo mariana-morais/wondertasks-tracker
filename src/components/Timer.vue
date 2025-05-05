@@ -15,8 +15,6 @@ const startTask = () => {
   stopwatch.value = setInterval(() => {
     timeInSeconds.value += 1;
   }, 1000);
-
-  console.log("start task");
 };
 
 const stopTask = () => {
@@ -25,7 +23,6 @@ const stopTask = () => {
   clearInterval(stopwatch.value);
   emit("stopwatchStopped", timeInSeconds.value);
   timeInSeconds.value = 0;
-  console.log("stop task???", timeInSeconds.value);
 };
 </script>
 

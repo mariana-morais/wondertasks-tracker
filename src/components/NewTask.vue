@@ -3,22 +3,27 @@ import { ref } from "vue";
 import Timer from "@/components/Timer.vue";
 
 const taskDescription = ref("");
+const taskCreated = ref(false);
 
-function handleSubmit(e: Event) {
-  e.preventDefault();
-}
+const generateId = () => Date.now().toString() + Math.random().toString(36).substring(2);
 
 const emit = defineEmits(["endTask"]);
 
 const endTask = (timeInSeconds: number): void => {
   emit("endTask", {
+    id: generateId(),
     description: taskDescription.value,
     timeInSeconds: timeInSeconds,
   });
+
   taskDescription.value = "";
+  taskCreated.value = true;
+  setTimeout(() => (taskCreated.value = false), 1000);
 };
 
-
+function handleSubmit(e: Event) {
+  e.preventDefault();
+}
 </script>
 
 <template>
@@ -49,5 +54,14 @@ const endTask = (timeInSeconds: number): void => {
       </div>
       <Timer @stopwatchStopped="endTask" />
     </form>
+
+    <transition name="fade">
+      <p
+        v-if="taskCreated"
+        class="mt-4 text-sm text-[#fdf2d5] font-alice"
+      >
+        Tarefa criada!
+      </p>
+    </transition>
   </section>
 </template>
