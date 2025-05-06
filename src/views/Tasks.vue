@@ -42,7 +42,7 @@ onMounted(() => {
         <small v-if="emptyList">
             Não tem nada para fazer ainda?
         </small>
-        <Task v-else v-for="task in tasks" :key="task.id" :task="task" @deleteTask="(id) => deleteTask(id)" />
+        <Task v-else v-for="task in tasks" :key="task.id" :task="task" @deleteTask="(id: string) => deleteTask(id)" />
     </section>
     <div class="absolute background h-[50rem] w-full top-32 z-0"></div>
   </section>
