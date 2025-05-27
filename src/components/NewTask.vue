@@ -34,9 +34,6 @@ function handleSubmit(e: Event) {
     <div
       class="absolute -left-3 top-1/2 w-6 h-6 -translate-y-1/2 bg-[#fdf2d5] border border-[#322D26] rounded-full shadow-inner"
     ></div>
-    <p class="text-lg font-alice text-[#fdf2d5] mb-4">
-      📜 Escreva sua nova tarefa:
-    </p>
 
     <form
       class="flex flex-col md:flex-row gap-4 w-full justify-between"

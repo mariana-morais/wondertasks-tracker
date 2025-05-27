@@ -16,7 +16,7 @@ const deleteTask = () => {
 
 <template>
   <div
-    class="flex flex-col justify-between relative h-auto  bg-[#fdf6e3] rounded-lg shadow-md text-[#322D26] rotate-[-1deg]"
+    class="flex flex-col justify-between relative h-auto  bg-[#fdf6e3] rounded-lg shadow-md text-[#322D26] rotate-[-1deg] border border-[#322D26]"
   >
     <div class="flex flex-row self-end mr-4 my-4" @click="deleteTask">
       <small class="cursor-pointer">X</small>

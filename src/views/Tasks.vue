@@ -34,13 +34,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="relative">
-    <HeaderTwo />
+  <section class="relative text-[#322D26]">
+    <HeaderTwo go-back="/" go-to="/busy-tasks" title="Tarefas atarefadas"  />
+    <h1 class="font-aliceWonderland text-3xl text-left px-8">Tarefas - Escreva uma nova</h1>
     <section class="flex flex-col justify-start gap-8 px-8 z-20 relative mb-8">
         <NewTask @endTask="endTask" />
-        <h1 class="font-aliceWonderland text-3xl text-[#322D26] text-left">A lista, tudo feito?</h1>
-        <small v-if="emptyList">
-            Não tem nada para fazer ainda?
+        <h1 class="font-aliceWonderland text-2xl text-left">A lista, tudo feito?</h1>
+        <small v-if="emptyList" class="font-aliceWonderland text-xl">
+            - Não tem nada para fazer, ainda?
         </small>
         <Task v-else v-for="task in tasks" :key="task.id" :task="task" @deleteTask="(id: string) => deleteTask(id)" />
     </section>
@@ -50,7 +51,7 @@ onMounted(() => {
 
 <style lang="css" scoped>
 .background {
-  background-image: url("../assets/images/rabbit1.png");
+  background-image: url("../assets/images/rabbit.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
