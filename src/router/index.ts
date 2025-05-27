@@ -32,7 +32,7 @@ const router = createRouter({
 })
 
 // Middleware global para atualizar o título
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const defaultTitle = 'WonderTasks Tracker'
   document.title = (to.meta.title as string) || defaultTitle
   next()
